@@ -61,7 +61,7 @@ const achievements = [
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-secondary/20">
+    <section id="about-me" className="py-20 bg-secondary/20">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Bio Section */}

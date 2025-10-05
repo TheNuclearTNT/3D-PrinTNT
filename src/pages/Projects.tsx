@@ -1,21 +1,15 @@
 import NavBar from "@/components/NavBar";
-import Hero from "@/components/Hero";
 import ProjectGallery from "@/components/ProjectGallery";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
 
-const Index = () => {
+const Projects = () => {
   return (
     <>
       <NavBar />
       <div className="min-h-screen pt-16">
-        <Hero />
         <ProjectGallery />
-        <About />
-        <Contact />
       </div>
     </>
   );
 };
 
-export default Index;
+export default Projects;

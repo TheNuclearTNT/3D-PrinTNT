@@ -1,13 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  const navigate = useNavigate();
+
+  const goToProjects = () => {
+    navigate("/projects");
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
+    <section id="designs" className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(262_83%_58%_/_0.1),transparent_70%)]" />
       
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -23,7 +26,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-gradient-primary hover:shadow-glow transition-all duration-300 text-lg px-8 py-6"
-              onClick={scrollToProjects}
+              onClick={goToProjects}
             >
               View My Work
             </Button>
@@ -40,7 +43,7 @@ const Hero = () => {
       </div>
       
       <button 
-        onClick={scrollToProjects}
+        onClick={goToProjects}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-primary hover:text-accent transition-colors"
         aria-label="Scroll to projects"
       >
