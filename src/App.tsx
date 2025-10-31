@@ -11,23 +11,26 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter basename={import.meta.env.BASE}>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/designs" element={<Designs />} />
-          <Route path="/about-me" element={<AboutPage />} />
-          <Route path="/projects" element={<Projects />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const base = import.meta.env.BASE.replace(/\/$/, '');
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter basename={base}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/designs" element={<Designs />} />
+            <Route path="/about-me" element={<AboutPage />} />
+            <Route path="/projects" element={<Projects />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
